@@ -9,34 +9,36 @@ import Foundation
 
 
 // Generate a weather prediction
-let prediction = WeatherPredictionGenerator.getPrediction()
 
-var history: [String] = []
+var history: [Prediction] = []
 
 print ("Welcome to Weather")
 
 while true {
-print("Do you wanna know the weather?")
- 
-let input = readLine()!
-
+    print("Do you wanna know the weather?")
+    
+    let input = readLine()!
+    
     if input == "Yes" {
         
-        var temporary = "Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C."
+        // Generate a weather prediction
+        let prediction = WeatherPredictionGenerator.getPrediction()
         
-      print(temporary)
+        //        var temporary = "Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C."
+        
+        print("Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C.")
         
         //print("Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C.")
-
+        
         print("That's \(prediction.feel.lowercased())!")
         
-        history.append(temporary)
+        history.append(prediction)
         
     } else if input == "No" {
-       
+        
         break
     }
- 
+    
     while true {
         
         print("wanna see history? Yes or no?")
@@ -44,9 +46,13 @@ let input = readLine()!
         let inputTwo = readLine()!
         
         if inputTwo == "Yes" {
+            for record in history {
+                print("\(String(format: "%.1f", arguments: [record.temperature]))")
+                print(record.condition.description)
+                print(record.feel)
+            }
+            break
             
-            dump(history)
-       
         } else {
             
             break
