@@ -7,10 +7,9 @@
 
 import Foundation
 
-
-
-
-
-
-
-
+class WeatherViewModel: ObservableObject {
+    
+    //history of advice sessions
+//    @Published var predictions: [Prediction] = []    //empty array to start
+    
+}
