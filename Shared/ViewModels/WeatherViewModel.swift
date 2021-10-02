@@ -9,7 +9,20 @@ import Foundation
 
 class WeatherViewModel: ObservableObject {
     
-    //history of advice sessions
-//    @Published var predictions: [Prediction] = []    //empty array to start
+    // empty array for now to store information
+    @Published var history: [Prediction] = []
     
+    func provideResponse() -> Prediction {
+        
+        let prediction = WeatherPredictionGenerator.getPrediction()
+        
+        // Add the answers that was givin into the empty array
+       
+        history.append(prediction)
+        
+        return prediction
+    }
+    
+    
+   
 }

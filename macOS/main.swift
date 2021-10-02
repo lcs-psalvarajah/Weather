@@ -8,10 +8,11 @@
 import Foundation
 
 
-// Generate a weather prediction
+// empty array for now to store information
+var forecast = WeatherViewModel()
 
-var history: [Prediction] = []
 
+//print welcome
 print ("Welcome to Weather")
 
 while true {
@@ -24,29 +25,28 @@ while true {
         // Generate a weather prediction
         let prediction = WeatherPredictionGenerator.getPrediction()
         
-        //        var temporary = "Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C."
-        
+        // print out the answers
         print("Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C.")
-        
-        //print("Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C.")
-        
+                
         print("That's \(prediction.feel.lowercased())!")
         
-        history.append(prediction)
+
         
     } else if input == "No" {
         
         break
     }
-    
+ 
+    // To show the history view
     while true {
         
         print("wanna see history? Yes or no?")
         
         let inputTwo = readLine()!
         
+        // print out hwat is within the array
         if inputTwo == "Yes" {
-            for record in history {
+            for record in forecast.history {
                 print("\(String(format: "%.1f", arguments: [record.temperature]))")
                 print(record.condition.description)
                 print(record.feel)
