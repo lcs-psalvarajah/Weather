@@ -11,10 +11,10 @@ import SwiftUI
 struct ContentView: View {
     
     // Make an instance of the view model to store weather prediction
-//    @StateObject private var forecast = WeatherViewModel()
+    @StateObject private var forecast = WeatherViewModel()
     
     // Stores the response to the given question
-//    @State private var output = ""
+    @State private var output = ""
     
     
     var body: some View {

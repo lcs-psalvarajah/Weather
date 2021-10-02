@@ -23,7 +23,7 @@ while true {
     if input == "Yes" {
         
         // Generate a weather prediction
-        let prediction = WeatherPredictionGenerator.getPrediction()
+        let prediction = forecast.getPrediction()
         
         // print out the answers
         print("Current conditions are \(prediction.condition.description.lowercased()) with a temperature of \(String(format: "%.1f", arguments: [prediction.temperature])) °C.")
